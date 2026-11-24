@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
+import PageHeading from "../components/PageHeading";
 
 const emptyForm = {
   name: "",
@@ -62,7 +63,7 @@ function Contact() {
 
   return (
     <div className="col-md-8 mx-auto">
-      <h1 className="mb-4">📬 Contactez-nous</h1>
+      <PageHeading title="Contactez-nous" icon="mail" />
       {success && (
         <div className="alert alert-success alert-dismissible" role="status">
           <strong>✅ Message envoyé !</strong> Nous vous répondrons dans les

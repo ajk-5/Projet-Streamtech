@@ -18,7 +18,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     try {
       localStorage.setItem("streamtech-theme", theme);
     } catch {
-      /* Le thème reste utilisable si le stockage est désactivé. */
+      /* theme remains usable if storage is disabled */
     }
   }, [theme]);
 

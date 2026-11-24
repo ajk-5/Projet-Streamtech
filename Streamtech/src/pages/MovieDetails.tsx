@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import type { MovieDetail } from "../types";
 import { getImageUrl, getMovieDetails } from "../services/tmdbApi";
 import Loading from "../components/Loading";
+import Icon from "../components/Icon";
 
 function MovieDetails() {
   const { id } = useParams();
@@ -61,7 +62,10 @@ function MovieDetails() {
                 >
                   ← Retour
                 </button>
-                <h1 className="text-white display-4">{movie.title}</h1>
+                <h1 className="text-white display-4 d-flex align-items-center gap-3">
+                  <Icon name="film" className="movie-heading-icon" />
+                  {movie.title}
+                </h1>
                 <p className="text-white fs-5">
                   {movie.release_date?.slice(0, 4)}
                 </p>
@@ -71,7 +75,13 @@ function MovieDetails() {
                 <Link to="/" className="btn btn-outline-secondary mb-3">
                   ← Retour
                 </Link>
-                <h1>{movie.title}</h1>
+                <h1 className="d-flex align-items-center gap-3">
+                  <Icon
+                    name="film"
+                    className="movie-heading-icon text-danger"
+                  />
+                  {movie.title}
+                </h1>
                 <p>{movie.release_date?.slice(0, 4)}</p>
               </div>
             )}

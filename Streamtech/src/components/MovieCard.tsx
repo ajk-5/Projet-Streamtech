@@ -12,6 +12,7 @@ interface MovieCardProps {
 function MovieCard({ id, title, year, rating, poster }: MovieCardProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const []
 
   return (
     <div className="col-6 col-md-4 col-lg-3">
@@ -52,6 +53,7 @@ function MovieCard({ id, title, year, rating, poster }: MovieCardProps) {
             {isLiked ? "♥" : "♡"} {isLiked ? 1 : 0} like
           </button>
         </div>
+        <div className="btn btn-sm ${WatchList ?  }"></div>
       </article>
     </div>
   );

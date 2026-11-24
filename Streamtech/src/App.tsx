@@ -1,5 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MovieDetails from "./pages/MovieDetails";
 import Todos from "./pages/Todos";
@@ -8,7 +9,9 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <main className="container py-4 flex-grow-1">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,6 +29,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }

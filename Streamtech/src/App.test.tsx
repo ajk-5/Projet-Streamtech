@@ -186,7 +186,7 @@ test("thème sauvegardé, menu mobile et page 404", async () => {
   const user = userEvent.setup();
   openApp("/page-inconnue");
   expect(screen.getByRole("heading", { name: /404/ })).toBeTruthy();
-  await user.click(screen.getByRole("button", { name: "☾ Mode sombre" }));
+  await user.click(screen.getByRole("button", { name: "Mode sombre" }));
   expect(localStorage.getItem("streamtech-theme")).toBe("dark");
   expect(document.documentElement.getAttribute("data-bs-theme")).toBe("dark");
   await user.click(screen.getByRole("button", { name: "Afficher le menu" }));

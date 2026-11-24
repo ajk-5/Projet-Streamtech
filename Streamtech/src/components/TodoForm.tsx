@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { FormEvent } from "react";
+import type { ChangeEvent } from "react";
 
 interface TodoFormProps {
   onAdd: (title: string) => Promise<boolean>;
@@ -10,7 +10,7 @@ function TodoForm({ onAdd, disabled }: TodoFormProps) {
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
     if (title.trim().length < 3 || title.trim().length > 100) {
       setError("Le titre doit contenir entre 3 et 100 caractères.");

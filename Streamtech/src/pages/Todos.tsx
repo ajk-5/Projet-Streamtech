@@ -9,6 +9,7 @@ import {
 import TodoForm from "../components/TodoForm";
 import TodoItem from "../components/TodoItem";
 import Loading from "../components/Loading";
+import PageHeading from "../components/PageHeading";
 
 function Todos() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -106,7 +107,7 @@ function Todos() {
 
   return (
     <>
-      <h1 className="mb-4">✅ Mes Tâches</h1>
+      <PageHeading title="Mes Tâches" icon="tasks" />
       {loading ? (
         <Loading />
       ) : (

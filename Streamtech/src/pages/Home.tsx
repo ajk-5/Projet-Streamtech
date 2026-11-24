@@ -9,6 +9,7 @@ import {
 import SearchBar from "../components/SearchBar";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
+import PageHeading from "../components/PageHeading";
 
 function Home() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -66,7 +67,7 @@ function Home() {
 
   return (
     <>
-      <h1 className="mb-4">🎬 Films Populaires</h1>
+      <PageHeading title="Films Populaires" icon="film" />
       <div className="row g-3 mb-4">
         <div className="col-md-8">
           <SearchBar
