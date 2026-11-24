@@ -1,5 +1,7 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Note from "./Note";
 
 interface MovieCardProps {
   id: number;
@@ -9,15 +11,24 @@ interface MovieCardProps {
   poster: string;
 }
 
-function MovieCard({ id, title, year, rating, poster }: MovieCardProps) {
+function MovieCard({
+  id,
+  title,
+  year,
+  rating,
+  poster,
+}: MovieCardProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const []
 
   return (
     <div className="col-6 col-md-4 col-lg-3">
       <article className="card h-100 movie-card border-danger">
-        <Link to={`/movie/${id}`} className="text-decoration-none text-body">
+
+        <Link
+          to={`/movie/${id}`}
+          className="text-decoration-none text-body"
+        >
           {poster && !imageError ? (
             <img
               src={poster}
@@ -31,31 +42,46 @@ function MovieCard({ id, title, year, rating, poster }: MovieCardProps) {
               Affiche indisponible
             </div>
           )}
+
           <div className="card-body pb-2">
-            <h3 className="h6 card-title">{title}</h3>
+            <h3 className="h6 card-title">
+              {title}
+            </h3>
+
             <div className="d-flex flex-wrap gap-2 small">
               <span className="text-body-secondary">
                 {year || "Date inconnue"}
               </span>
-              <span className="badge text-bg-warning">
-                ★ {rating.toFixed(1)}/10
-              </span>
+
+              <Note valeur={rating} />
             </div>
           </div>
         </Link>
+
         <div className="card-body pt-2 mt-auto">
           <button
-            className={`btn btn-sm ${isLiked ? "btn-danger" : "btn-outline-danger"}`}
+            className={`btn btn-sm ${
+              isLiked
+                ? "btn-danger"
+                : "btn-outline-danger"
+            }`}
             aria-pressed={isLiked}
-            aria-label={`${isLiked ? "Ne plus aimer" : "Aimer"} ${title}`}
-            onClick={() => setIsLiked(!isLiked)}
+            aria-label={`${
+              isLiked ? "Ne plus aimer" : "Aimer"
+            } ${title}`}
+            onClick={() =>
+              setIsLiked(previous => !previous)
+            }
           >
-            {isLiked ? "♥" : "♡"} {isLiked ? 1 : 0} like
+            {isLiked ? "♥" : "♡"}
+            {" "}
+            {isLiked ? 1 : 0} like
           </button>
         </div>
-        <div className="btn btn-sm ${WatchList ?  }"></div>
+
       </article>
     </div>
   );
 }
+
 export default MovieCard;
